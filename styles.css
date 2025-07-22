@@ -156,6 +156,13 @@ html {
   min-height: 80px;
 }
 
+.terminal-body div {
+  color: #33ff33;
+  font-family: 'JetBrains Mono', monospace;
+  white-space: pre;
+  line-height: 1.4;
+}
+
 .hidden {
   display: none !important;
 }

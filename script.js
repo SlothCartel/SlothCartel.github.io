@@ -22,6 +22,24 @@ function typeText(el, text) {
   type();
 }
 
+function typeLines(el, lines) {
+  el.innerHTML = ''; // clear
+  let i = 0;
+
+  function typeLine() {
+    if (i >= lines.length) return;
+
+    const span = document.createElement('div');
+    span.textContent = lines[i];
+    el.appendChild(span);
+    i++;
+
+    setTimeout(typeLine, 75); // Adjust speed here
+  }
+
+  typeLine();
+}
+
 links.forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
@@ -41,7 +59,18 @@ links.forEach(link => {
     // Animate text
     const body = targetCard.querySelector('.terminal-body');
     const text = body.getAttribute('data-text');
-    if (text) typeText(body, text.replace(/\\n/g, '\n'));
+    const linesRaw = body.getAttribute('data-lines');
+
+    if (linesRaw) {
+    try {
+        const lines = JSON.parse(linesRaw);
+        typeLines(body, lines);
+    } catch (err) {
+        console.error("Failed to parse data-lines JSON:", err);
+    }
+    } else if (text) {
+    typeText(body, text.replace(/\\n/g, '\n'));
+    }
 
     // Hide sidebar after selection
     sidebar.classList.remove('collapsed');
