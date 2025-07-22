@@ -28,22 +28,27 @@ links.forEach(link => {
 
     const targetId = link.getAttribute('data-target');
     const targetCard = document.getElementById(targetId);
-
     if (!targetCard) return;
 
-    cards.forEach(card => card.classList.remove('active'));
+    // Hide all cards
+    cards.forEach(card => {
+      card.classList.remove('active');
+    });
 
+    // Show the clicked one
     targetCard.classList.add('active');
-    const body = targetCard.querySelector('.terminal-body');
-    const text = body.getAttribute('data-text').replace(/\\n/g, '\n');
-    typeText(body, text);
 
-    // Hide sidebar (especially on mobile)
+    // Animate text
+    const body = targetCard.querySelector('.terminal-body');
+    const text = body.getAttribute('data-text');
+    if (text) typeText(body, text.replace(/\\n/g, '\n'));
+
+    // Hide sidebar after selection
     sidebar.classList.remove('collapsed');
   });
 });
 
-// Auto-load first section
+// Auto-load home on first visit
 window.addEventListener('DOMContentLoaded', () => {
   const first = document.querySelector('.sidebar-link[data-target="home"]');
   if (first) first.click();
