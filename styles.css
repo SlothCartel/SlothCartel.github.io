@@ -218,3 +218,12 @@ html {
   margin: 0;
   padding: 0;
 }
+
+.terminal-tree {
+  white-space: pre-wrap;
+  font-family: var(--terminal-font, 'Courier New', monospace);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #e0e0e0;
+  padding: 0.5rem 0.5rem;
+}
