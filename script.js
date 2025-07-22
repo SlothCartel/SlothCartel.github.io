@@ -30,7 +30,7 @@ function typeLines(el, lines) {
     if (i >= lines.length) return;
 
     const span = document.createElement('div');
-    span.textContent = lines[i];
+    span.innerHTML = lines[i];
     el.appendChild(span);
     i++;
 
