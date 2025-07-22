@@ -163,6 +163,7 @@ html {
 }
 
 .terminal-body {
+  color: #33ff33;
   white-space: pre-wrap;
   font-family: 'JetBrains Mono', monospace;
   min-height: 80px;
