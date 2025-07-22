@@ -125,7 +125,7 @@ document.querySelectorAll(".readme-link").forEach(link => {
         }
 
         const project = link.dataset.project;
-        const readmeLines = readmeContents[project];
+        const readmeLines = readmeData[project];
         const body = document.getElementById("readme-body");
         const header = document.getElementById("readme-header");
 
