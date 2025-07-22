@@ -114,21 +114,27 @@ const readmeData = {
   ]
 };
 
-document.querySelectorAll('.readme-link').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const project = e.target.getAttribute('data-project');
-    const readmeLines = readmeData[project];
+document.querySelectorAll(".readme-link").forEach(link => {
+    link.addEventListener("click", event => {
+        event.preventDefault();
 
-    if (readmeLines) {
+        // Hide nav menu if open (mobile)
+        const navMenu = document.querySelector(".nav-links");
+        if (navMenu.classList.contains("active")) {
+            navMenu.classList.remove("active");
+        }
+
+        const project = link.dataset.project;
+        const readmeLines = readmeContents[project];
         const body = document.getElementById("readme-body");
         const header = document.getElementById("readme-header");
+
+        if (!body || !header || !readmeLines) return;
 
         header.textContent = `cat projects/${project}/README.md`;
         body.innerHTML = "";
         header.style.display = "block";
         body.style.display = "block";
         typeLines(body, readmeLines);
-    }
-  });
+    });
 });

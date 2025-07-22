@@ -159,6 +159,8 @@ html {
   font-family: 'JetBrains Mono', monospace;
   min-height: 80px;
   line-height: 1.4;
+  overflow-x: auto;
+  word-wrap: break-word;
 }
 
 .terminal-body div {
