@@ -30,7 +30,7 @@ a:hover {
 
 /* SIDEBAR */
 .sidebar {
-  width: 270px;
+  width: 250px;
   background-color: #1a1a1a;
   padding: 2rem 1rem 2rem 4.5rem; /* ← left padding increased */
   transition: transform 0.3s ease;
