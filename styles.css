@@ -154,6 +154,7 @@ html {
   white-space: pre-wrap;
   font-family: 'JetBrains Mono', monospace;
   min-height: 80px;
+  line-height: 1.4;
 }
 
 .terminal-body div {
