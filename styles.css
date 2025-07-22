@@ -69,7 +69,7 @@ a:hover {
 
 /* CONTENT */
 .content {
-  padding: 4rem 2rem 2rem 2.5rem; /* left padding increased */
+  padding: 4rem 2rem 2rem 3.5rem; /* left padding increased */
   z-index: 1;
   position: relative;
 }
@@ -114,12 +114,17 @@ h2 {
 
   .sidebar {
     width: 220px;
+  }
 
-    .sidebar nav {
-        margin-top: 1rem;
-    }
+  .sidebar nav {
+    margin-top: 1rem;
+  }
+
+  .sidebar nav ul li a {
+    padding-left: 0.5rem; /* new line */
   }
 }
+
 
 html {
   scroll-padding-top: 4rem;
