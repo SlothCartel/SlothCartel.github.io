@@ -202,3 +202,9 @@ html {
 #projects-tree {
   margin-bottom: 1rem;
 }
+
+.tree-line {
+  font-family: monospace;
+  white-space: pre;
+  line-height: 1.6;
+}
