@@ -7,73 +7,65 @@
 
   <!-- JetBrains Mono from Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
-
   <!-- Font Awesome for icons -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-  <!-- Your stylesheet -->
+  <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Mobile Header (hamburger menu) -->
-  <button id="menu-toggle" class="menu-btn" aria-label="Toggle Menu">
-  &#9776; <!-- fallback hamburger symbol -->
-</button>->>
 
-  <!-- Container for sidebar and content -->
+  <button id="menu-toggle" class="menu-btn" aria-label="Toggle Menu">&#9776;</button>
+
   <div class="container">
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
       <h1 class="logo">Eugene Holt</h1>
       <nav>
         <ul>
-          <li><a href="#home"><i class="fas fa-home"></i> ->>Home</a></li>
-          <li><a href="#skills"><i class="fas fa-code"></i> ->>Skills</a></li>
-          <li><a href="#work"><i class="fas fa-briefcase"></i> ->>Work Experience</a></li>
-          <li><a href="#projects"><i class="fas fa-laptop-code"></i> ->>Personal Projects</a></li>
-          <li><a href="#education"><i class="fas fa-graduation-cap"></i> ->>Education</a></li>
-          <li><a href="#contact"><i class="fas fa-envelope"></i> ->>Contact Me</a></li>
+          <li><a href="#" data-target="home"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="#" data-target="skills"><i class="fas fa-code"></i> Skills</a></li>
+          <li><a href="#" data-target="work"><i class="fas fa-briefcase"></i> Work Experience</a></li>
+          <li><a href="#" data-target="projects"><i class="fas fa-laptop-code"></i> Personal Projects</a></li>
+          <li><a href="#" data-target="education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+          <li><a href="#" data-target="contact"><i class="fas fa-envelope"></i> Contact Me</a></li>
         </ul>
       </nav>
     </aside>
 
-    <!-- Main content -->
+    <!-- Content area -->
     <main class="content">
-      <section id="home">
-        <h2>Welcome</h2>
-        <p>Hi, I’m DevMaster — a full stack software developer and IT student.</p>
-      </section>
+      <div id="home" class="card">
+        <div class="terminal-header">> home</div>
+        <div class="terminal-body" data-text="Hi, I’m DevMaster — a full stack software developer and IT student."></div>
+      </div>
 
-      <section id="skills">
-        <h2>Skills</h2>
-        <p>List your core programming languages, frameworks, and tools here.</p>
-      </section>
+      <div id="skills" class="card hidden">
+        <div class="terminal-header">> skills</div>
+        <div class="terminal-body" data-text="Python, Django, React, Docker, PostgreSQL, Linux, Git, HTML/CSS, TypeScript"></div>
+      </div>
 
-      <section id="work">
-        <h2>Work Experience</h2>
-        <p>Summarize your experience like you did in your CV.</p>
-      </section>
+      <div id="work" class="card hidden">
+        <div class="terminal-header">> work</div>
+        <div class="terminal-body" data-text="Software Developer at Holt Consulting Engineers (Dec 2024 – Present): Designed and built a secure, containerized CRM with VPN access control."></div>
+      </div>
 
-      <section id="projects">
-        <h2>Personal Projects</h2>
-        <p>Showcase your key personal or academic projects here.</p>
-      </section>
+      <div id="projects" class="card hidden">
+        <div class="terminal-header">> projects</div>
+        <div class="terminal-body" data-text="Quotation Generator, WireGuard VPN Manager, Fitness Tracker App, Time Sheet Manager, Invoice Builder"></div>
+      </div>
 
-      <section id="education">
-        <h2>Education</h2>
-        <p>Summarize your academic history here.</p>
-      </section>
+      <div id="education" class="card hidden">
+        <div class="terminal-header">> education</div>
+        <div class="terminal-body" data-text="BSc IT (final year), Honours IT planned 2026. Contract dev experience since 2024."></div>
+      </div>
 
-      <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="eugene.holt09@gmail.com">eugene.holt09@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/eugene-holt-67a0742a0/" target="_blank">Eugene Holt</a></p>
-        <p>GitHub: <a href="https://github.com/SlothCartel" target="_blank">@SlothCartel</a></p>
-      </section>
+      <div id="contact" class="card hidden">
+        <div class="terminal-header">> contact</div>
+        <div class="terminal-body" data-text="Email: eugene.holt09@gmail.com\nGitHub: github.com/SlothCartel\nLinkedIn: linkedin.com/in/eugene-holt-67a0742a0"></div>
+      </div>
     </main>
   </div>
 
-  <!-- JS for sidebar toggle -->
   <script src="script.js"></script>
 </body>
 </html>
