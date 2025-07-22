@@ -27,20 +27,24 @@ links.forEach(link => {
     e.preventDefault();
 
     const targetId = link.getAttribute('data-target');
-    cards.forEach(card => card.classList.remove('active'));
     const targetCard = document.getElementById(targetId);
-    targetCard.classList.add('active');
 
+    if (!targetCard) return;
+
+    cards.forEach(card => card.classList.remove('active'));
+
+    targetCard.classList.add('active');
     const body = targetCard.querySelector('.terminal-body');
     const text = body.getAttribute('data-text').replace(/\\n/g, '\n');
     typeText(body, text);
 
-    // Hide sidebar on selection (useful for mobile)
+    // Hide sidebar (especially on mobile)
     sidebar.classList.remove('collapsed');
   });
 });
 
-// Trigger first card on load
+// Auto-load first section
 window.addEventListener('DOMContentLoaded', () => {
-  document.querySelector('.sidebar-link[data-target="home"]').click();
+  const first = document.querySelector('.sidebar-link[data-target="home"]');
+  if (first) first.click();
 });
