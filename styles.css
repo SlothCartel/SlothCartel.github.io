@@ -138,6 +138,10 @@ html {
   box-shadow: 0 0 5px #33ff33;
   border-radius: 5px;
   display: none;
+  max-width: 100%;
+  width: 100%;
+  margin: 1rem auto;
+  overflow: hidden;
 }
 
 .card.active {
@@ -176,4 +180,13 @@ html {
 .typing {
   animation: blink 1s step-end infinite;
   border-right: 2px solid;
+}
+
+.card .terminal-body {
+  overflow-x: auto;  /* Add horizontal scroll if content overflows */
+  white-space: pre-wrap; /* Preserve formatting but allow wrapping */
+  word-break: break-word;
+  padding: 1rem;
+  max-width: 100%;
+  box-sizing: border-box;
 }
