@@ -221,7 +221,7 @@ html {
 
 .terminal-tree {
   white-space: pre-wrap;
-  font-family: var(--terminal-font, 'Courier New', monospace);
+  font-family: 'JetBrains Mono', monospace;
   font-size: 0.9rem;
   line-height: 1.4;
   color: #e0e0e0;
