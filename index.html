@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DevMaster Portfolio</title>
+
+  <!-- JetBrains Mono from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Your stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Mobile Header (hamburger menu) -->
+  <header class="mobile-header">
+    <button id="menu-toggle" class="menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+    <span class="site-title">DevMaster</span>
+  </header>
+
+  <!-- Container for sidebar and content -->
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar collapsed" id="sidebar">
+      <h1 class="logo">DevMaster</h1>
+      <nav>
+        <ul>
+          <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
+          <li><a href="#work"><i class="fas fa-briefcase"></i> Work Experience</a></li>
+          <li><a href="#projects"><i class="fas fa-laptop-code"></i> Personal Projects</a></li>
+          <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+          <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Me</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="content">
+      <section id="home">
+        <h2>Welcome</h2>
+        <p>Hi, I’m DevMaster — a full stack software developer and IT student.</p>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <p>List your core programming languages, frameworks, and tools here.</p>
+      </section>
+
+      <section id="work">
+        <h2>Work Experience</h2>
+        <p>Summarize your experience like you did in your CV.</p>
+      </section>
+
+      <section id="projects">
+        <h2>Personal Projects</h2>
+        <p>Showcase your key personal or academic projects here.</p>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <p>Summarize your academic history here.</p>
+      </section>
+
+      <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="eugene.holt09@gmail.com">your@email.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/eugene-holt-67a0742a0/" target="_blank">yourprofile</a></p>
+        <p>GitHub: <a href="https://github.com/SlothCartel" target="_blank">@SlothCartel</a></p>
+      </section>
+    </main>
+  </div>
+
+  <!-- JS for sidebar toggle -->
+  <script src="script.js"></script>
+</body>
+</html>
