@@ -121,15 +121,14 @@ document.querySelectorAll('.readme-link').forEach(link => {
     const readmeLines = readmeData[project];
 
     if (readmeLines) {
-      const body = document.getElementById("readme-body");
-      const header = document.getElementById("readme-header");
-      const filenameSpan = document.getElementById("readme-filename");
+        const body = document.getElementById("readme-body");
+        const header = document.getElementById("readme-header");
 
-      filenameSpan.textContent = project;
-      body.innerHTML = "";
-      header.style.display = "block";
-      body.style.display = "block";
-      typeLines(body, readmeLines);
+        header.textContent = `cat projects/${project}/README.md`;
+        body.innerHTML = "";
+        header.style.display = "block";
+        body.style.display = "block";
+        typeLines(body, readmeLines);
     }
   });
 });
