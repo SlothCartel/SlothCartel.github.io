@@ -82,3 +82,54 @@ window.addEventListener('DOMContentLoaded', () => {
   const first = document.querySelector('.sidebar-link[data-target="home"]');
   if (first) first.click();
 });
+
+const readmeData = {
+  WorkoutTracker: [
+    "WorkoutTracker is a Python web app to track workouts, set goals, and monitor progress.",
+    "",
+    "Features:",
+    "- Log workouts (exercise, duration, intensity)",
+    "- Set/track goals",
+    "- Progress visualization",
+    "- Clean interface",
+    "",
+    "Stack:",
+    "Python, Django, Chart.js, Bootstrap",
+    "",
+    "Repo: https://github.com/SlothCartel/WorkoutTracker"
+  ],
+  Blackjack: [
+    "Blackjack is a terminal-based game between a player and dealer written in C++.",
+    "",
+    "Features:",
+    "- Full gameplay with deck logic",
+    "- Hit / Stand choices",
+    "- Win/loss tracking",
+    "- Menu interface",
+    "",
+    "Stack:",
+    "C++",
+    "",
+    "Repo: https://github.com/SlothCartel/Blackjack"
+  ]
+};
+
+document.querySelectorAll('.readme-link').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const project = e.target.getAttribute('data-project');
+    const readmeLines = readmeData[project];
+
+    if (readmeLines) {
+      const body = document.getElementById("readme-body");
+      const header = document.getElementById("readme-header");
+      const filenameSpan = document.getElementById("readme-filename");
+
+      filenameSpan.textContent = project;
+      body.innerHTML = "";
+      header.style.display = "block";
+      body.style.display = "block";
+      typeLines(body, readmeLines);
+    }
+  });
+});
