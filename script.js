@@ -120,7 +120,7 @@ document.querySelectorAll(".readme-link").forEach(link => {
 
         // Hide nav menu if open (mobile)
         const navMenu = document.querySelector(".nav-links");
-        if (navMenu.classList.contains("active")) {
+        if (navMenu && navMenu.classList.contains("active")) {
             navMenu.classList.remove("active");
         }
 
