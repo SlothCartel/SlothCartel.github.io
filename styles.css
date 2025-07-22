@@ -1,4 +1,4 @@
-/* Global styles */
+/* GLOBAL RESET */
 * {
   margin: 0;
   padding: 0;
@@ -8,43 +8,43 @@
 
 body {
   font-family: 'JetBrains Mono', monospace;
-  background-color: #0d0d0d; /* Bash-like black */
-  color: #33ff33; /* Classic green text */
+  background-color: #0d0d0d;
+  color: #33ff33;
   line-height: 1.6;
 }
 
+/* LINKS */
 a {
   color: #33ff33;
   text-decoration: none;
 }
-
 a:hover {
   text-decoration: underline;
 }
 
-/* Layout container */
+/* CONTAINER */
 .container {
-  display: flex;
-  min-height: 100vh;
+  display: block;
+  position: relative;
 }
 
-/* Sidebar */
+/* SIDEBAR */
 .sidebar {
   width: 250px;
   background-color: #1a1a1a;
   padding: 2rem 1rem;
   transition: transform 0.3s ease;
-  transform: translateX(0);
+  transform: translateX(-100%);
   z-index: 1000;
   position: fixed;
   top: 0;
-  bottom: 0;
   left: 0;
+  bottom: 0;
   overflow-y: auto;
 }
 
 .sidebar.collapsed {
-  transform: translateX(-100%);
+  transform: translateX(0);
 }
 
 .sidebar .logo {
@@ -57,11 +57,9 @@ a:hover {
 .sidebar nav ul {
   list-style: none;
 }
-
 .sidebar nav ul li {
   margin-bottom: 1rem;
 }
-
 .sidebar nav ul li a {
   display: flex;
   align-items: center;
@@ -69,75 +67,46 @@ a:hover {
   font-size: 1rem;
 }
 
-/* Content */
+/* CONTENT */
 .content {
-  margin-left: 250px;
   padding: 2rem;
-  flex: 1;
-  transition: margin-left 0.3s ease;
+  z-index: 1;
+  position: relative;
 }
 
-.sidebar.collapsed + .content {
-  margin-left: 0;
-}
-
-/* Mobile Header */
-.mobile-header {
-  display: none;
+/* TOGGLE BUTTON */
+.menu-btn {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
   background-color: #1a1a1a;
   color: #33ff33;
-  padding: 1rem;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
-
-.menu-btn {
-  background: none;
   border: none;
-  color: #33ff33;
   font-size: 1.5rem;
+  padding: 0.5rem 0.75rem;
   cursor: pointer;
+  z-index: 1100;
 }
 
-.site-title {
-  font-size: 1.2rem;
-}
-
-/* Section headers */
+/* SECTION STYLING */
 section {
   margin-bottom: 4rem;
 }
-
 h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: #00ff00;
 }
 
-/* Responsive */
+/* RESPONSIVE */
 @media (max-width: 768px) {
+  .menu-btn {
+    top: 0.75rem;
+    left: 0.75rem;
+    font-size: 1.3rem;
+  }
+
   .sidebar {
-    position: fixed;
-    height: 100%;
-    transform: translateX(-100%);
-  }
-
-  .sidebar.collapsed {
-    transform: translateX(0);
-  }
-
-  .content {
-    margin-left: 0;
-  }
-
-  .sidebar.collapsed + .content {
-    margin-left: 250px;
-  }
-
-  .mobile-header {
-    display: flex;
+    width: 220px;
   }
 }
