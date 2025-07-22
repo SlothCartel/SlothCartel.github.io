@@ -2,8 +2,9 @@ document.getElementById('menu-toggle').addEventListener('click', function () {
   document.getElementById('sidebar').classList.toggle('collapsed');
 });
 
-const links = document.querySelectorAll('.sidebar nav a');
+const links = document.querySelectorAll('.sidebar-link');
 const cards = document.querySelectorAll('.card');
+const sidebar = document.getElementById('sidebar');
 
 function typeText(el, text) {
   el.classList.remove('typing');
@@ -26,21 +27,20 @@ links.forEach(link => {
     e.preventDefault();
 
     const targetId = link.getAttribute('data-target');
-
-    cards.forEach(card => {
-      card.classList.remove('active');
-    });
-
+    cards.forEach(card => card.classList.remove('active'));
     const targetCard = document.getElementById(targetId);
     targetCard.classList.add('active');
 
     const body = targetCard.querySelector('.terminal-body');
     const text = body.getAttribute('data-text').replace(/\\n/g, '\n');
     typeText(body, text);
+
+    // Hide sidebar on selection (useful for mobile)
+    sidebar.classList.remove('collapsed');
   });
 });
 
 // Trigger first card on load
 window.addEventListener('DOMContentLoaded', () => {
-  document.querySelector('.sidebar nav a[data-target="home"]').click();
+  document.querySelector('.sidebar-link[data-target="home"]').click();
 });
