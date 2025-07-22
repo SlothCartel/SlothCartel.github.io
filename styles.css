@@ -190,3 +190,13 @@ html {
   max-width: 100%;
   box-sizing: border-box;
 }
+
+.terminal-body pre {
+  white-space: pre;
+  margin: 0;
+  font-family: inherit;
+}
+
+#projects-tree {
+  margin-bottom: 1rem;
+}
