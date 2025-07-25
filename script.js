@@ -1,161 +1,10 @@
-document.getElementById('menu-toggle').addEventListener('click', function (e) {
-  e.stopPropagation(); // Prevent event bubbling
-  const sidebar = document.getElementById('sidebar');
-  const menuButton = document.getElementById('menu-toggle');
-
-  sidebar.classList.toggle('collapsed');
-
-  // Hide menu button when sidebar opens
-  if (sidebar.classList.contains('collapsed')) {
-    menuButton.style.display = 'none';
-  } else {
-    menuButton.style.display = 'flex';
-  }
-});
-
-// Close sidebar when clicking outside of it
-document.addEventListener('click', function(event) {
-  const sidebar = document.getElementById('sidebar');
-  const menuButton = document.getElementById('menu-toggle');
-
-  // Check if sidebar is open and click is outside sidebar
-  if (sidebar.classList.contains('collapsed') && !sidebar.contains(event.target)) {
-    sidebar.classList.remove('collapsed');
-    menuButton.style.display = 'flex';
-  }
-});
-
-// Prevent sidebar clicks from closing the sidebar
-document.getElementById('sidebar').addEventListener('click', function(e) {
-  e.stopPropagation();
-});
-
+// DOM Elements
+const sidebar = document.getElementById('sidebar');
+const menuButton = document.getElementById('menu-toggle');
 const links = document.querySelectorAll('.sidebar-link');
 const cards = document.querySelectorAll('.card');
-const sidebar = document.getElementById('sidebar');
 
-function typeText(el, text) {
-  el.classList.remove('typing');
-  el.textContent = '';
-  let i = 0;
-  function type() {
-    if (i < text.length) {
-      el.textContent += text.charAt(i);
-      i++;
-      setTimeout(type, 20);
-    } else {
-      el.classList.add('typing');
-    }
-  }
-  type();
-}
-
-function typeLines(el, lines) {
-  el.innerHTML = ''; // clear
-  let i = 0;
-
-  function typeLine() {
-    if (i >= lines.length) return;
-
-    const span = document.createElement('div');
-    span.innerHTML = lines[i];
-    el.appendChild(span);
-    i++;
-
-    setTimeout(typeLine, 75); // Adjust speed here
-  }
-
-  typeLine();
-}
-
-function typeText(el, text) {
-  // Check if this is the home section with profile content
-  const profileSection = el.querySelector('.profile-section');
-
-  if (profileSection) {
-    // For home section, preserve profile and add text after it
-    let textElement = el.querySelector('.about-text');
-    if (!textElement) {
-      textElement = document.createElement('div');
-      textElement.className = 'about-text';
-      el.appendChild(textElement);
-    }
-
-    textElement.classList.remove('typing');
-    textElement.textContent = '';
-    let i = 0;
-    function type() {
-      if (i < text.length) {
-        textElement.textContent += text.charAt(i);
-        i++;
-        setTimeout(type, 20);
-      } else {
-        textElement.classList.add('typing');
-      }
-    }
-    type();
-  } else {
-    // For other sections, clear and type normally
-    el.classList.remove('typing');
-    el.textContent = '';
-    let i = 0;
-    function type() {
-      if (i < text.length) {
-        el.textContent += text.charAt(i);
-        i++;
-        setTimeout(type, 20);
-      } else {
-        el.classList.add('typing');
-      }
-    }
-    type();
-  }
-}
-
-links.forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-
-    const targetId = link.getAttribute('data-target');
-    const targetCard = document.getElementById(targetId);
-    if (!targetCard) return;
-
-    // Hide all cards
-    cards.forEach(card => {
-      card.classList.remove('active');
-    });
-
-    // Show the clicked one
-    targetCard.classList.add('active');
-
-    // Animate text for all sections
-    const body = targetCard.querySelector('.terminal-body');
-    const text = body.getAttribute('data-text');
-    const linesRaw = body.getAttribute('data-lines');
-
-    if (linesRaw) {
-      try {
-        const lines = JSON.parse(linesRaw);
-        typeLines(body, lines);
-      } catch (err) {
-        console.error("Failed to parse data-lines JSON:", err);
-      }
-    } else if (text) {
-      typeText(body, text.replace(/\\n/g, '\n'));
-    }
-
-    // Hide sidebar and show menu button after selection
-    sidebar.classList.remove('collapsed');
-    document.getElementById('menu-toggle').style.display = 'flex';
-  });
-});
-
-// Auto-load home on first visit
-window.addEventListener('DOMContentLoaded', () => {
-  const first = document.querySelector('.sidebar-link[data-target="home"]');
-  if (first) first.click();
-});
-
+// Project README data
 const readmeData = {
   WorkoutTracker: [
     "WorkoutTracker:",
@@ -198,34 +47,135 @@ const readmeData = {
     "C#, ASP.NET, SQL Server",
     " ",
     "Repo: <a href=\"https://github.com/DevMasters-Group/MovieTopia\" target=\"_blank\">https://github.com/DevMasters-Group/MovieTopia</a>"
-  ],
+  ]
 };
 
-document.querySelectorAll(".readme-link").forEach(link => {
-    link.addEventListener("click", event => {
-        event.preventDefault();
+// Typing animation functions
+function typeText(el, text) {
+  const profileSection = el.querySelector('.profile-section');
 
-        // Hide nav menu if open (mobile)
-        const navMenu = document.querySelector(".nav-links");
-        if (navMenu && navMenu.classList.contains("active")) {
-            navMenu.classList.remove("active");
-        }
+  if (profileSection) {
+    let textElement = el.querySelector('.about-text');
+    if (!textElement) {
+      textElement = document.createElement('div');
+      textElement.className = 'about-text';
+      el.appendChild(textElement);
+    }
+    animateText(textElement, text);
+  } else {
+    animateText(el, text);
+  }
+}
 
-        const project = link.dataset.project;
-        const readmeLines = readmeData[project];
-        const body = document.getElementById("readme-body");
-        const header = document.getElementById("readme-header");
+function animateText(element, text) {
+  element.classList.remove('typing');
+  element.textContent = '';
+  let i = 0;
 
-        if (!body || !header || !readmeLines) return;
+  function type() {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, 20);
+    } else {
+      element.classList.add('typing');
+    }
+  }
+  type();
+}
 
-        header.textContent = `cat projects/${project}/README.md`;
-        body.innerHTML = "";
-        header.style.display = "block";
-        body.style.display = "block";
-        typeLines(body, readmeLines);
-    });
+function typeLines(el, lines) {
+  el.innerHTML = '';
+  let i = 0;
+
+  function typeLine() {
+    if (i >= lines.length) return;
+
+    const div = document.createElement('div');
+    div.innerHTML = lines[i];
+    el.appendChild(div);
+    i++;
+    setTimeout(typeLine, 75);
+  }
+  typeLine();
+}
+
+// Sidebar functionality
+menuButton.addEventListener('click', function (e) {
+  e.stopPropagation();
+  sidebar.classList.toggle('collapsed');
+
+  if (sidebar.classList.contains('collapsed')) {
+    menuButton.style.display = 'none';
+  } else {
+    menuButton.style.display = 'flex';
+  }
 });
 
+document.addEventListener('click', function(event) {
+  if (sidebar.classList.contains('collapsed') && !sidebar.contains(event.target)) {
+    sidebar.classList.remove('collapsed');
+    menuButton.style.display = 'flex';
+  }
+});
+
+sidebar.addEventListener('click', function(e) {
+  e.stopPropagation();
+});
+
+// Navigation functionality
+links.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+
+    const targetId = link.getAttribute('data-target');
+    const targetCard = document.getElementById(targetId);
+    if (!targetCard) return;
+
+    cards.forEach(card => card.classList.remove('active'));
+    targetCard.classList.add('active');
+
+    const body = targetCard.querySelector('.terminal-body');
+    const text = body.getAttribute('data-text');
+    const linesRaw = body.getAttribute('data-lines');
+
+    if (linesRaw) {
+      try {
+        const lines = JSON.parse(linesRaw);
+        typeLines(body, lines);
+      } catch (err) {
+        console.error("Failed to parse data-lines JSON:", err);
+      }
+    } else if (text) {
+      typeText(body, text.replace(/\\n/g, '\n'));
+    }
+
+    sidebar.classList.remove('collapsed');
+    menuButton.style.display = 'flex';
+  });
+});
+
+// Project README links
+document.querySelectorAll(".readme-link").forEach(link => {
+  link.addEventListener("click", event => {
+    event.preventDefault();
+
+    const project = link.dataset.project;
+    const readmeLines = readmeData[project];
+    const body = document.getElementById("readme-body");
+    const header = document.getElementById("readme-header");
+
+    if (!body || !header || !readmeLines) return;
+
+    header.textContent = `cat projects/${project}/README.md`;
+    body.innerHTML = "";
+    header.style.display = "block";
+    body.style.display = "block";
+    typeLines(body, readmeLines);
+  });
+});
+
+// CV download functionality
 document.getElementById('cv-download-btn').addEventListener('click', function() {
   const link = document.createElement('a');
   link.href = 'media/CV.pdf';
@@ -235,4 +185,9 @@ document.getElementById('cv-download-btn').addEventListener('click', function() 
   document.body.removeChild(link);
 });
 
+// Initialize home section on page load
+window.addEventListener('DOMContentLoaded', () => {
+  const homeLink = document.querySelector('.sidebar-link[data-target="home"]');
+  if (homeLink) homeLink.click();
+});
 

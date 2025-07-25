@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<h      <!-- Home section -->
+      <div id="home" class="card active">
+        <div class="terminal-header">> home</div>
+        <div class="terminal-body" data-text="Hi, I'm Eugene Holt — a full stack software developer and final-year BSc Information Technology student at North-West University. I design and build secure, scalable web applications, with a focus on backend systems, DevOps, and clean, maintainable code. My core stack includes Python, Django, Docker, JavaScript, and Linux-based infrastructure.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eugene Holt Portfolio</title>
 
-  <!-- JetBrains Mono from Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
-  <!-- Font Awesome for icons -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css" />
-
+  <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="data:,">
 </head>
 <body>
-
+  <!-- Menu toggle button -->
   <button id="menu-toggle" class="menu-btn" aria-label="Toggle Menu">&#9776;</button>
 
   <div class="container">
-    <!-- Sidebar -->
+    <!-- Navigation sidebar -->
     <aside class="sidebar" id="sidebar">
       <h1 class="logo">Eugene Holt</h1>
       <nav>
         <ul>
-            <li><a href="#" class="sidebar-link" data-target="home"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="#" class="sidebar-link" data-target="skills"><i class="fas fa-code"></i> Skills</a></li>
-            <li><a href="#" class="sidebar-link" data-target="experience"><i class="fas fa-briefcase"></i> Work Experience</a></li>
-            <li><a href="#" class="sidebar-link" data-target="projects"><i class="fas fa-laptop-code"></i> Personal Projects</a></li>
-            <li><a href="#" class="sidebar-link" data-target="education"><i class="fas fa-graduation-cap"></i> Education</a></li>
-            <li><a href="#" class="sidebar-link" data-target="contact"><i class="fas fa-envelope"></i> Contact Me</a></li>
+          <li><a href="#" class="sidebar-link" data-target="home"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="#" class="sidebar-link" data-target="skills"><i class="fas fa-code"></i> Skills</a></li>
+          <li><a href="#" class="sidebar-link" data-target="experience"><i class="fas fa-briefcase"></i> Work Experience</a></li>
+          <li><a href="#" class="sidebar-link" data-target="projects"><i class="fas fa-laptop-code"></i> Personal Projects</a></li>
+          <li><a href="#" class="sidebar-link" data-target="education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+          <li><a href="#" class="sidebar-link" data-target="contact"><i class="fas fa-envelope"></i> Contact Me</a></li>
         </ul>
       </nav>
     </aside>
 
-    <!-- Content area -->
+    <!-- Main content area -->
     <main class="content">
       <div id="home" class="card active">
         <div class="terminal-header">> home</div>
@@ -57,62 +56,65 @@
         </div>
       </div>
 
+      <!-- Skills section -->
       <div id="skills" class="card">
         <div class="terminal-header">&gt; skills</div>
-        <div class="terminal-body terminal-body-responsive" id="skills-body" data-lines='[
-            "&gt; tree skills\/",
-            "skills\/",
-            "├── Languages\/",
-            "│   ├── <i class=\"devicon-python-plain\"><\/i> Python",
-            "│   ├── <i class=\"devicon-java-plain colored\"><\/i> Java",
-            "│   └── <i class=\"devicon-csharp-plain colored\"><\/i> C#",
-            "├── Frameworks\/",
-            "│   ├── <i class=\"devicon-django-plain colored\"><\/i> Django",
-            "│   └── <i class=\"devicon-bootstrap-plain colored\"><\/i> Bootstrap 5",
-            "├── Databases\/",
-            "│   ├── <i class=\"devicon-postgresql-plain colored\"><\/i> PostgreSQL",
-            "│   ├── <i class=\"devicon-sqlite-plain colored\"><\/i> SQLite",
-            "│   └── <i class=\"devicon-microsoftsqlserver-plain colored\"><\/i> SQL Server",
-            "├── DevOps\/",
-            "│   ├── <i class=\"devicon-docker-plain colored\"><\/i> Docker",
-            "│   ├── <i class=\"devicon-git-plain colored\"><\/i> Git",
-            "│   └── <i class=\"devicon-linux-plain colored\"><\/i> Linux",
-            "└── Web\/",
-            "    ├── <i class=\"devicon-html5-plain colored\"><\/i> HTML\/CSS",
-            "    └── <i class=\"devicon-javascript-plain colored\"><\/i> JavaScript"
+        <div class="terminal-body" data-lines='[
+          "&gt; tree skills\/",
+          "skills\/",
+          "├── Languages\/",
+          "│   ├── <i class=\"devicon-python-plain\"><\/i> Python",
+          "│   ├── <i class=\"devicon-java-plain colored\"><\/i> Java",
+          "│   └── <i class=\"devicon-csharp-plain colored\"><\/i> C#",
+          "├── Frameworks\/",
+          "│   ├── <i class=\"devicon-django-plain colored\"><\/i> Django",
+          "│   └── <i class=\"devicon-bootstrap-plain colored\"><\/i> Bootstrap 5",
+          "├── Databases\/",
+          "│   ├── <i class=\"devicon-postgresql-plain colored\"><\/i> PostgreSQL",
+          "│   ├── <i class=\"devicon-sqlite-plain colored\"><\/i> SQLite",
+          "│   └── <i class=\"devicon-microsoftsqlserver-plain colored\"><\/i> SQL Server",
+          "├── DevOps\/",
+          "│   ├── <i class=\"devicon-docker-plain colored\"><\/i> Docker",
+          "│   ├── <i class=\"devicon-git-plain colored\"><\/i> Git",
+          "│   └── <i class=\"devicon-linux-plain colored\"><\/i> Linux",
+          "└── Web\/",
+          "    ├── <i class=\"devicon-html5-plain colored\"><\/i> HTML\/CSS",
+          "    └── <i class=\"devicon-javascript-plain colored\"><\/i> JavaScript"
         ]'></div>
-    </div>
+      </div>
 
+      <!-- Work experience section -->
       <div id="experience" class="card">
         <div class="terminal-header">&gt; work_experience</div>
-        <div class="terminal-body terminal-body-responsive" id="experience-body" data-lines='[
-            "> cat resume.txt",
-            " ",
-            "Position:        Software Developer",
-            "Company:         Holt Consulting Engineers (Pty) Ltd",
-            "Type:            Contract",
-            "Location:        Gauteng, South Africa (Hybrid)",
-            "Duration:        Dec 2024 – Present",
-            " ",
-            "Responsibilities:",
-            "- Designed and developed a secure web-based CRM system, handling the full stack.",
-            "- Backend (Python/Django): Built modular components for customers, contacts, leads, stock, and quotations.",
-            "- Frontend (Bootstrap, JS, HTML/CSS): Integrated Bootstrap 5 template for responsive UI.",
-            "- PDF Generation: Implemented dynamic quote generation with WeasyPrint, including support for nested accessory structures.",
-            "- Security & Access: Role-based access, invitation-only signup, WireGuard VPN for access control.",
-            "- DevOps: Dockerized with Docker Compose, deployed to DigitalOcean (Ubuntu VPS).",
-            "- Hosting: Nginx, Gunicorn, HTTPS via Let\u0027s Encrypt, PostgreSQL database.",
-            "- Deployment: Git-based version control, auto-migrations, static files via collectstatic.",
-            " ",
-            "Technologies:",
-            "Python, Django, PostgreSQL, Docker, Git, Nginx, WeasyPrint, WireGuard, DigitalOcean, Ubuntu"
+        <div class="terminal-body" data-lines='[
+          "> cat resume.txt",
+          " ",
+          "Position:        Software Developer",
+          "Company:         Holt Consulting Engineers (Pty) Ltd",
+          "Type:            Contract",
+          "Location:        Gauteng, South Africa (Hybrid)",
+          "Duration:        Dec 2024 – Present",
+          " ",
+          "Responsibilities:",
+          "- Designed and developed a secure web-based CRM system, handling the full stack.",
+          "- Backend (Python/Django): Built modular components for customers, contacts, leads, stock, and quotations.",
+          "- Frontend (Bootstrap, JS, HTML/CSS): Integrated Bootstrap 5 template for responsive UI.",
+          "- PDF Generation: Implemented dynamic quote generation with WeasyPrint, including support for nested accessory structures.",
+          "- Security & Access: Role-based access, invitation-only signup, WireGuard VPN for access control.",
+          "- DevOps: Dockerized with Docker Compose, deployed to DigitalOcean (Ubuntu VPS).",
+          "- Hosting: Nginx, Gunicorn, HTTPS via Let\u0027s Encrypt, PostgreSQL database.",
+          "- Deployment: Git-based version control, auto-migrations, static files via collectstatic.",
+          " ",
+          "Technologies:",
+          "Python, Django, PostgreSQL, Docker, Git, Nginx, WeasyPrint, WireGuard, DigitalOcean, Ubuntu"
         ]'></div>
-    </div>
+      </div>
 
+      <!-- Personal projects section -->
       <div id="projects" class="card">
-  <div class="terminal-header">> personal_projects</div>
-  <div class="terminal-body terminal-body-responsive">
-    <pre class="terminal-tree">
+        <div class="terminal-header">> personal_projects</div>
+        <div class="terminal-body">
+          <pre class="terminal-tree">
 projects/
 ├── WorkoutTracker/
 │   └── <a href="#" class="readme-link" data-project="WorkoutTracker">README.md</a>
@@ -120,31 +122,33 @@ projects/
 │   └── <a href="#" class="readme-link" data-project="Blackjack">README.md</a>
 └── MovieTopia/
     └── <a href="#" class="readme-link" data-project="MovieTopia">README.md</a>
-    </pre>
-
-    <div class="terminal-header" id="readme-header" style="display:none;"></div>
-    <div class="terminal-body terminal-body-responsive" id="readme-body" style="display:none;"></div>
-  </div>
-</div>
-
-      <div id="education" class="card">
-        <div class="terminal-header">> education</div>
-        <div class="terminal-body terminal-body-responsive" data-lines='[
-  "[2023 - Present]",
-  "  Degree: BSc Information Technology",
-  "  Institution: North-West University",
-  "  Campus: Potchefstroom, South Africa",
-  "",
-  "[2018 - 2022]",
-  "  Qualification: Matric",
-  "  Institution: Sasolburg High School",
-  "  Location: Free State, South Africa"
-]'></div>
+          </pre>
+          <!-- Project README display area -->
+          <div class="terminal-header" id="readme-header" style="display:none;"></div>
+          <div class="terminal-body" id="readme-body" style="display:none;"></div>
+        </div>
       </div>
 
+      <!-- Education section -->
+      <div id="education" class="card">
+        <div class="terminal-header">> education</div>
+        <div class="terminal-body" data-lines='[
+          "[2023 - Present]",
+          "  Degree: BSc Information Technology",
+          "  Institution: North-West University",
+          "  Campus: Potchefstroom, South Africa",
+          "",
+          "[2018 - 2022]",
+          "  Qualification: Matric",
+          "  Institution: Sasolburg High School",
+          "  Location: Free State, South Africa"
+        ]'></div>
+      </div>
+
+      <!-- Contact section -->
       <div id="contact" class="card">
         <div class="terminal-header">> contact</div>
-        <div class="terminal-body terminal-body-responsive" data-text="Email: eugene.holt09@gmail.com"></div>
+        <div class="terminal-body" data-text="Email: eugene.holt09@gmail.com"></div>
       </div>
     </main>
   </div>

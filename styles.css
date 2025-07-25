@@ -1,4 +1,4 @@
-/* GLOBAL RESET */
+/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
@@ -13,26 +13,48 @@ body {
   line-height: 1.6;
 }
 
-/* LINKS */
+html {
+  scroll-padding-top: 4rem;
+}
+
 a {
   color: #33ff33;
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
 
-/* CONTAINER */
+/* Layout components */
 .container {
   display: block;
   position: relative;
 }
 
-/* SIDEBAR */
+.menu-btn {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  background-color: #1a1a1a;
+  color: #33ff33;
+  border: 2px solid #33ff33;
+  font-size: 1.5rem;
+  padding: 0.5rem 0.75rem 0.75rem;
+  cursor: pointer;
+  z-index: 1100;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
 .sidebar {
   width: 350px;
   background-color: #1a1a1a;
-  padding: 2rem 1rem 2rem 4.5rem; /* ← left padding increased */
+  padding: 2rem 1rem 2rem 4.5rem;
   transition: transform 0.3s ease;
   transform: translateX(-100%);
   z-index: 1000;
@@ -57,9 +79,11 @@ a:hover {
 .sidebar nav ul {
   list-style: none;
 }
+
 .sidebar nav ul li {
   margin-bottom: 1rem;
 }
+
 .sidebar nav ul li a {
   display: flex;
   align-items: center;
@@ -67,46 +91,206 @@ a:hover {
   font-size: 1rem;
 }
 
-/* CONTENT */
 .content {
-  padding: 4rem 2rem 2rem 4.5rem; /* left padding increased */
+  padding: 4rem 2rem 2rem 4.5rem;
   z-index: 1;
   position: relative;
 }
 
-/* TOGGLE BUTTON */
-.menu-btn {
-  position: fixed;
-  top: 1.5rem;
-  left: 1.5rem;
-  background-color: #1a1a1a;
-  color: #33ff33;
+/* Terminal styling */
+.card {
+  background-color: #332c2c;
   border: 2px solid #33ff33;
-  font-size: 1.5rem;
-  padding: 0.5rem 0.75rem;
+  padding: 1.5rem;
+  margin: 1rem auto 2rem auto;
+  box-shadow: 0 0 5px #33ff33;
+  border-radius: 5px;
+  display: none;
+  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.card.active {
+  display: block;
+}
+
+.terminal-header {
+  color: #00ff00;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.terminal-body {
+  color: #33ff33;
+  white-space: pre-wrap;
+  font-family: 'JetBrains Mono', monospace;
+  min-height: 80px;
+  line-height: 1.4;
+  overflow-x: auto;
+  word-wrap: break-word;
+  padding: 1rem;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.terminal-body div {
+  color: #33ff33;
+  font-family: 'JetBrains Mono', monospace;
+  white-space: pre;
+  line-height: 1.4;
+}
+
+.terminal-body pre {
+  white-space: pre;
+  margin: 0;
+  font-family: inherit;
+}
+
+/* Project-specific terminal styling */
+#projects .terminal-body {
+  padding: 0 !important;
+}
+
+#projects pre {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.terminal-tree {
+  white-space: pre;
+  color: #f1f6f1;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+/* Home section profile */
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.profile-pic {
+  width: 200px;
+  height: 300px;
+  border-radius: 20%;
+  object-fit: cover;
+  border: 3px solid #00ff00;
+  display: block;
+  flex-shrink: 0;
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.social-icons a,
+.cv-download {
+  color: #00ff00;
+  font-size: 28px;
+  text-decoration: none;
+  background: none;
+  border: none;
   cursor: pointer;
-  z-index: 1100;
-  border-radius: 4px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  position: relative;
 }
 
-/* SECTION STYLING */
-section {
-  margin-bottom: 4rem;
+.social-icons a:hover,
+.cv-download:hover {
+  color: #ffffff;
+  transform: scale(1.1);
 }
-h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+
+.cv-download:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.about-text {
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #33ff33;
+  margin-top: 10px;
+  clear: both;
+}
+
+#home .terminal-body {
+  white-space: normal !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+#home .about-text {
+  white-space: normal !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #33ff33;
+  margin-top: 10px;
+  clear: both;
+}
+
+/* Tooltip styling */
+.social-icons a[title]:hover::after,
+.cv-download[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  left: 50%;
+  top: -45px;
+  transform: translateX(-50%);
+  background-color: #1a1a1a;
   color: #00ff00;
+  padding: 8px 12px;
+  border: 1px solid #00ff00;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  white-space: nowrap;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 255, 0, 0.3);
 }
 
+.social-icons a[title]:hover::before,
+.cv-download[title]:hover::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -8px;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: #00ff00;
+  z-index: 1001;
+}
 
+/* Utility classes */
+.hidden {
+  display: none !important;
+}
 
-/* RESPONSIVE */
+/* Animations */
+@keyframes blink {
+  0%, 50% { border-right-color: #33ff33; }
+  51%, 100% { border-right-color: transparent; }
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
   .menu-btn {
     top: 0.75rem;
@@ -115,8 +299,8 @@ h2 {
   }
 
   .sidebar {
-    width: 280px; /* Increased width for mobile */
-    padding: 2rem 1rem; /* Reduced left padding */
+    width: 280px;
+    padding: 2rem 1rem;
   }
 
   .sidebar nav {
@@ -125,10 +309,6 @@ h2 {
 
   .sidebar nav ul li a {
     padding-left: 0.5rem;
-    font-size: 0.9rem; /* Slightly smaller text */
-  }
-
-  .tree-line {
     font-size: 0.9rem;
   }
 
@@ -136,7 +316,6 @@ h2 {
     padding: 0.75rem;
   }
 
-  /* Mobile profile section fixes */
   .profile-section {
     flex-direction: column !important;
     align-items: center !important;
@@ -173,7 +352,6 @@ h2 {
     margin: 0.5rem auto;
   }
 
-  /* Fix home section text on mobile */
   #home .terminal-body {
     padding: 1rem !important;
   }
@@ -186,7 +364,6 @@ h2 {
   }
 }
 
-/* Extra small screens */
 @media (max-width: 480px) {
   .sidebar {
     width: 260px;
@@ -210,251 +387,5 @@ h2 {
   .about-text {
     font-size: 0.9rem !important;
   }
-}
-
-  .content {
-    padding: 3rem 0.5rem 1rem 0.5rem;
-  }
-}
-
-
-html {
-  scroll-padding-top: 4rem;
-}
-
-.card {
-  background-color: #332c2c;
-  border: 2px solid #33ff33;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 0 5px #33ff33;
-  border-radius: 5px;
-  display: none;
-  max-width: 100%;
-  width: 100%;
-  margin: 1rem auto;
-  overflow: hidden;
-}
-
-.card.active {
-  display: block;
-}
-
-.terminal-header {
-  color: #00ff00;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.terminal-body {
-  color: #33ff33;
-  white-space: pre-wrap;
-  font-family: 'JetBrains Mono', monospace;
-  min-height: 80px;
-  line-height: 1.4;
-  overflow-x: auto;
-  word-wrap: break-word;
-}
-
-.terminal-body div {
-  color: #33ff33;
-  font-family: 'JetBrains Mono', monospace;
-  white-space: pre;
-  line-height: 1.4;
-}
-
-.hidden {
-  display: none !important;
-}
-
-@keyframes blink {
-  0%, 50% { border-right-color: #33ff33; }
-  51%, 100% { border-right-color: transparent; }
-}
-
-.typing {
-  /* animation: blink 1s step-end infinite; */
-  /* border-right: 2px solid; */
-}
-
-.card .terminal-body {
-  overflow-x: auto;  /* Add horizontal scroll if content overflows */
-  white-space: pre-wrap; /* Preserve formatting but allow wrapping */
-  word-break: break-word;
-  padding: 1rem;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-.terminal-body pre {
-  white-space: pre;
-  margin: 0;
-  font-family: inherit;
-}
-
-#projects-tree {
-  margin-bottom: 1rem;
-}
-
-.tree-line {
-  font-family: monospace;
-  white-space: pre;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-}
-
-#projects .terminal-body {
-  padding: 0 !important; /* Remove all padding specifically for projects */
-}
-
-.terminal-tree {
-  white-space: pre;
-  color: #f1f6f1;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  padding: 0;
-  margin: 0;
-  display: block;
-}
-
-#projects pre {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-
-.profile-section {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 10px;
-}
-
-.profile-pic {
-  width: 200px; /* Slightly smaller for better proportions */
-  height: 300px;
-  border-radius: 20%;
-  object-fit: cover;
-  border: 3px solid #00ff00;
-  display: block;
-  flex-shrink: 0; /* Prevent the image from shrinking */
-}
-
-.social-icons {
-  display: flex;
-  flex-direction: column; /* Stack icons vertically */
-  gap: 15px;
-  align-items: flex-start; /* Align icons to the left */
-}
-
-.social-icons a,
-.cv-download {
-  color: #00ff00;
-  font-size: 28px; /* Slightly larger icons */
-  text-decoration: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: color 0.3s ease;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.social-icons a:hover,
-.cv-download:hover:not(:disabled) {
-  color: #ffffff;
-  transform: scale(1.1);
-}
-
-.cv-download:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.about-text {
-  text-align: left;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #33ff33;
-  margin-top: 10px;
-  clear: both; /* Ensure text appears below the profile section */
-}
-
-#home .terminal-body {
-  white-space: normal !important;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-#home .about-text {
-  white-space: normal !important;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  text-align: left;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #33ff33;
-  margin-top: 10px;
-  clear: both;
-}
-
-/* Custom tooltip styling */
-.social-icons a,
-.cv-download {
-  color: #00ff00;
-  font-size: 28px;
-  text-decoration: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: color 0.3s ease, transform 0.3s ease;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.social-icons a:hover,
-.cv-download:hover {
-  color: #ffffff;
-  transform: scale(1.1);
-}
-
-/* Custom tooltip styling to match terminal theme */
-.social-icons a[title]:hover::after,
-.cv-download[title]:hover::after {
-  content: attr(title);
-  position: absolute;
-  left: 50%;
-  top: -45px;
-  transform: translateX(-50%);
-  background-color: #1a1a1a;
-  color: #00ff00;
-  padding: 8px 12px;
-  border: 1px solid #00ff00;
-  border-radius: 4px;
-  font-size: 12px;
-  font-family: 'JetBrains Mono', monospace;
-  white-space: nowrap;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 255, 0, 0.3);
-}
-
-/* Arrow for tooltip */
-.social-icons a[title]:hover::before,
-.cv-download[title]:hover::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: -8px;
-  transform: translateX(-50%);
-  border: 4px solid transparent;
-  border-top-color: #00ff00;
-  z-index: 1001;
 }
 
