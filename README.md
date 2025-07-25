@@ -1,10 +1,10 @@
 # Eugene Holt's Portfolio Website
 
-Welcome to the source code for [Eugene Holt's](https://github.com/SlothCartel) personal portfolio website, hosted at [slothcartel.github.io](https://slothcartel.github.io/).
+Welcome to the source code for [my](https://github.com/SlothCartel) personal portfolio website, hosted at [slothcartel.github.io](https://slothcartel.github.io/).
 
 ## About
 
-This repository contains the HTML, CSS, and JavaScript powering my online portfolio. Here you'll find:
+This repository contains the HTML, CSS, and JavaScript code for my online portfolio. Here you'll find:
 
 - **Showcase of my projects**
 - **Professional background**
@@ -29,7 +29,7 @@ To view or modify the website locally:
    ```
 2. **Open `index.html` in your browser.**
 
-No build step required – everything is static!
+No build step required – everything is static.
 
 ## Contributing
 
