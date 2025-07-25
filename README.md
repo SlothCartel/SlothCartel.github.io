@@ -1,4 +1,4 @@
-# Eugene Holt's Portfolio Website
+# Eugene Holt - Portfolio Website
 
 Welcome to the source code for [my](https://github.com/SlothCartel) personal portfolio website, hosted at [slothcartel.github.io](https://slothcartel.github.io/).
 
