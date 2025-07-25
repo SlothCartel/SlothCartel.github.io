@@ -25,7 +25,7 @@ To view or modify the website locally:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/SlothCartel/SlothCartel.github.io.git
+   git clone https://github.com/SlothCartel/SlothCartel.github.io
    ```
 2. **Open `index.html` in your browser.**
 
