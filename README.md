@@ -9,7 +9,6 @@ This repository contains the HTML, CSS, and JavaScript code for my online portfo
 - **Showcase of my projects**
 - **Professional background**
 - **Contact information**
-- **Personal interests and more**
 
 Feel free to explore the code and see how the site is built!
 
