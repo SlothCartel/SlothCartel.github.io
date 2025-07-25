@@ -47,6 +47,16 @@ const readmeData = {
     "C#, ASP.NET, SQL Server",
     " ",
     "Repo: <a href=\"https://github.com/DevMasters-Group/MovieTopia\" target=\"_blank\">https://github.com/DevMasters-Group/MovieTopia</a>"
+  ],
+  Portfolio_Website: [
+    "Portfolio Website:",
+    "",
+    "This portfolio website showcases my projects and skills. It features a modern design with a sidebar navigation, animated typing effects, and a responsive layout.",
+    " ",
+    "Stack:",
+    "HTML, CSS, JavaScript",
+    " ",
+    "Repo: <a href=\"https://github.com/SlothCartel/SlothCartel.github.io\" target=\"_blank\">https://github.com/SlothCartel/SlothCartel.github.io</a>"
   ]
 };
 
