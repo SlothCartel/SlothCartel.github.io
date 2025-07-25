@@ -15,9 +15,9 @@ Feel free to explore the code and see how the site is built!
 
 ## Technologies Used
 
-- **HTML** (structure)
-- **CSS** (styling)
-- **JavaScript** (interactivity)
+- **HTML** 
+- **CSS** 
+- **JavaScript** 
 
 ## Getting Started
 
