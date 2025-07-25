@@ -104,6 +104,8 @@ h2 {
   color: #00ff00;
 }
 
+
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .menu-btn {
@@ -113,7 +115,8 @@ h2 {
   }
 
   .sidebar {
-    width: 220px;
+    width: 280px; /* Increased width for mobile */
+    padding: 2rem 1rem; /* Reduced left padding */
   }
 
   .sidebar nav {
@@ -121,7 +124,8 @@ h2 {
   }
 
   .sidebar nav ul li a {
-    padding-left: 0.5rem; /* new line */
+    padding-left: 0.5rem;
+    font-size: 0.9rem; /* Slightly smaller text */
   }
 
   .tree-line {
@@ -130,6 +134,86 @@ h2 {
 
   .terminal-body {
     padding: 0.75rem;
+  }
+
+  /* Mobile profile section fixes */
+  .profile-section {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 15px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .profile-pic {
+    width: 150px !important;
+    height: 200px !important;
+    border-radius: 15% !important;
+  }
+
+  .social-icons {
+    flex-direction: row !important;
+    gap: 20px !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .social-icons a,
+  .cv-download {
+    font-size: 24px !important;
+    padding: 8px !important;
+  }
+
+  .content {
+    padding: 4rem 1rem 2rem 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+    margin: 0.5rem auto;
+  }
+
+  /* Fix home section text on mobile */
+  #home .terminal-body {
+    padding: 1rem !important;
+  }
+
+  .about-text {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    text-align: left !important;
+    margin-top: 15px !important;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 260px;
+  }
+
+  .profile-pic {
+    width: 120px !important;
+    height: 160px !important;
+  }
+
+  .social-icons a,
+  .cv-download {
+    font-size: 20px !important;
+    padding: 6px !important;
+  }
+
+  .content {
+    padding: 3rem 0.5rem 1rem 0.5rem;
+  }
+
+  .about-text {
+    font-size: 0.9rem !important;
+  }
+}
+
+  .content {
+    padding: 3rem 0.5rem 1rem 0.5rem;
   }
 }
 

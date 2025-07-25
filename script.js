@@ -1,12 +1,15 @@
-document.getElementById('menu-toggle').addEventListener('click', function () {
+document.getElementById('menu-toggle').addEventListener('click', function (e) {
+  e.stopPropagation(); // Prevent event bubbling
   const sidebar = document.getElementById('sidebar');
   const menuButton = document.getElementById('menu-toggle');
 
   sidebar.classList.toggle('collapsed');
 
-  // Hide menu button when sidebar opens (when collapsed class is added)
+  // Hide menu button when sidebar opens
   if (sidebar.classList.contains('collapsed')) {
     menuButton.style.display = 'none';
+  } else {
+    menuButton.style.display = 'flex';
   }
 });
 
@@ -15,13 +18,16 @@ document.addEventListener('click', function(event) {
   const sidebar = document.getElementById('sidebar');
   const menuButton = document.getElementById('menu-toggle');
 
-  // Check if sidebar is open and click is outside sidebar and not the menu button
-  if (sidebar.classList.contains('collapsed') &&
-      !sidebar.contains(event.target) &&
-      !menuButton.contains(event.target)) {
+  // Check if sidebar is open and click is outside sidebar
+  if (sidebar.classList.contains('collapsed') && !sidebar.contains(event.target)) {
     sidebar.classList.remove('collapsed');
-    menuButton.style.display = 'flex'; // Show menu button again
+    menuButton.style.display = 'flex';
   }
+});
+
+// Prevent sidebar clicks from closing the sidebar
+document.getElementById('sidebar').addEventListener('click', function(e) {
+  e.stopPropagation();
 });
 
 const links = document.querySelectorAll('.sidebar-link');
