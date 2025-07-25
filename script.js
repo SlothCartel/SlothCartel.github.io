@@ -1,5 +1,27 @@
 document.getElementById('menu-toggle').addEventListener('click', function () {
-  document.getElementById('sidebar').classList.toggle('collapsed');
+  const sidebar = document.getElementById('sidebar');
+  const menuButton = document.getElementById('menu-toggle');
+
+  sidebar.classList.toggle('collapsed');
+
+  // Hide menu button when sidebar opens (when collapsed class is added)
+  if (sidebar.classList.contains('collapsed')) {
+    menuButton.style.display = 'none';
+  }
+});
+
+// Close sidebar when clicking outside of it
+document.addEventListener('click', function(event) {
+  const sidebar = document.getElementById('sidebar');
+  const menuButton = document.getElementById('menu-toggle');
+
+  // Check if sidebar is open and click is outside sidebar and not the menu button
+  if (sidebar.classList.contains('collapsed') &&
+      !sidebar.contains(event.target) &&
+      !menuButton.contains(event.target)) {
+    sidebar.classList.remove('collapsed');
+    menuButton.style.display = 'flex'; // Show menu button again
+  }
 });
 
 const links = document.querySelectorAll('.sidebar-link');
@@ -40,6 +62,50 @@ function typeLines(el, lines) {
   typeLine();
 }
 
+function typeText(el, text) {
+  // Check if this is the home section with profile content
+  const profileSection = el.querySelector('.profile-section');
+
+  if (profileSection) {
+    // For home section, preserve profile and add text after it
+    let textElement = el.querySelector('.about-text');
+    if (!textElement) {
+      textElement = document.createElement('div');
+      textElement.className = 'about-text';
+      el.appendChild(textElement);
+    }
+
+    textElement.classList.remove('typing');
+    textElement.textContent = '';
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        textElement.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 20);
+      } else {
+        textElement.classList.add('typing');
+      }
+    }
+    type();
+  } else {
+    // For other sections, clear and type normally
+    el.classList.remove('typing');
+    el.textContent = '';
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        el.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 20);
+      } else {
+        el.classList.add('typing');
+      }
+    }
+    type();
+  }
+}
+
 links.forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
@@ -56,24 +122,25 @@ links.forEach(link => {
     // Show the clicked one
     targetCard.classList.add('active');
 
-    // Animate text
+    // Animate text for all sections
     const body = targetCard.querySelector('.terminal-body');
     const text = body.getAttribute('data-text');
     const linesRaw = body.getAttribute('data-lines');
 
     if (linesRaw) {
-    try {
+      try {
         const lines = JSON.parse(linesRaw);
         typeLines(body, lines);
-    } catch (err) {
+      } catch (err) {
         console.error("Failed to parse data-lines JSON:", err);
-    }
+      }
     } else if (text) {
-    typeText(body, text.replace(/\\n/g, '\n'));
+      typeText(body, text.replace(/\\n/g, '\n'));
     }
 
-    // Hide sidebar after selection
+    // Hide sidebar and show menu button after selection
     sidebar.classList.remove('collapsed');
+    document.getElementById('menu-toggle').style.display = 'flex';
   });
 });
 
@@ -85,33 +152,47 @@ window.addEventListener('DOMContentLoaded', () => {
 
 const readmeData = {
   WorkoutTracker: [
-    "WorkoutTracker is a Python web app to track workouts, set goals, and monitor progress.",
+    "WorkoutTracker:",
     "",
+    "WorkoutTracker is a Python-based application designed to help users track their workouts and monitor their fitness progress. The application allows users to log different types of exercises, set goals, and visualize their progress over time.",
+    " ",
     "Features:",
-    "- Log workouts (exercise, duration, intensity)",
-    "- Set/track goals",
-    "- Progress visualization",
-    "- Clean interface",
-    "",
+    "Log workouts with details such as exercise type, duration, and intensity",
+    "Set and track fitness goals",
+    "Visualize progress with charts and graphs",
+    "User-friendly interface",
+    " ",
     "Stack:",
     "Python, Django, Chart.js, Bootstrap",
-    "",
-    "Repo: https://github.com/SlothCartel/WorkoutTracker"
+    " ",
+    "Repo: <a href=\"https://github.com/SlothCartel/WorkoutTracker\" target=\"_blank\">https://github.com/SlothCartel/WorkoutTracker</a>"
   ],
   Blackjack: [
-    "Blackjack is a terminal-based game between a player and dealer written in C++.",
+    "Blackjack:",
     "",
+    "Blackjack is a terminal-based game between a player and dealer written in C++.",
+    " ",
     "Features:",
     "- Full gameplay with deck logic",
     "- Hit / Stand choices",
     "- Win/loss tracking",
     "- Menu interface",
-    "",
+    " ",
     "Stack:",
     "C++",
+    " ",
+    "Repo: <a href=\"https://github.com/SlothCartel/Blackjack\" target=\"_blank\">https://github.com/SlothCartel/Blackjack</a>"
+  ],
+  MovieTopia: [
+    "MovieTopia:",
     "",
-    "Repo: https://github.com/SlothCartel/Blackjack"
-  ]
+    "MovieTopia is a cinema control management system for scheduling movies and selling tickets to customers. This was our team's deliverable project for the Systems Analysis and Design II module at North West University.",
+    " ",
+    "Stack:",
+    "C#, ASP.NET, SQL Server",
+    " ",
+    "Repo: <a href=\"https://github.com/DevMasters-Group/MovieTopia\" target=\"_blank\">https://github.com/DevMasters-Group/MovieTopia</a>"
+  ],
 };
 
 document.querySelectorAll(".readme-link").forEach(link => {
@@ -138,3 +219,14 @@ document.querySelectorAll(".readme-link").forEach(link => {
         typeLines(body, readmeLines);
     });
 });
+
+document.getElementById('cv-download-btn').addEventListener('click', function() {
+  const link = document.createElement('a');
+  link.href = 'media/CV.pdf';
+  link.download = 'Eugene_Holt_CV.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+});
+
+
