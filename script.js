@@ -188,7 +188,7 @@ document.querySelectorAll(".readme-link").forEach(link => {
 // CV download functionality
 document.getElementById('cv-download-btn').addEventListener('click', function() {
   const link = document.createElement('a');
-  link.href = 'media/CV.pdf';
+  link.href = 'media/Eugene Holt - CV.pdf';
   link.download = 'Eugene_Holt_CV.pdf';
   document.body.appendChild(link);
   link.click();
