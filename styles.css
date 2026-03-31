@@ -11,6 +11,7 @@ body {
   background-color: #0d0d0d;
   color: #33ff33;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 html {
@@ -95,6 +96,7 @@ a:hover {
   padding: 4rem 2rem 2rem 4.5rem;
   z-index: 1;
   position: relative;
+  min-width: 0;
 }
 
 /* Terminal styling */
@@ -107,6 +109,7 @@ a:hover {
   border-radius: 5px;
   display: none;
   width: min(100%, 1600px);
+  max-width: 100%;
   overflow: hidden;
 }
 
@@ -144,6 +147,7 @@ a:hover {
   white-space: pre;
   margin: 0;
   font-family: inherit;
+  max-width: 100%;
 }
 
 /* Project-specific terminal styling */
@@ -358,7 +362,7 @@ a:hover {
   }
 
   .sidebar {
-    width: 280px;
+    width: min(280px, calc(100vw - 1rem));
     padding: 2rem 1rem;
   }
 
@@ -373,6 +377,18 @@ a:hover {
 
   .terminal-body {
     padding: 0.75rem;
+    overflow-x: hidden;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    min-width: 0;
+  }
+
+  .terminal-body div,
+  .terminal-body pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .home-layout {
@@ -403,17 +419,46 @@ a:hover {
   }
 
   .content {
-    padding: 4rem 1rem 2rem 1rem;
+    padding: 4.5rem 0.875rem 1.25rem;
   }
 
   .card {
+    width: 100%;
     padding: 1rem;
-    margin: 0.5rem auto;
+    margin: 0.75rem auto 1rem;
+  }
+
+  .terminal-header {
+    overflow-wrap: anywhere;
+  }
+
+  .terminal-tree {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  #projects .terminal-body,
+  #projects pre {
+    max-width: 100%;
+  }
+
+  #projects a,
+  #readme-body a,
+  #contact .terminal-body,
+  #experience .terminal-body,
+  #skills .terminal-body,
+  #education .terminal-body {
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   #home .terminal-body {
     padding: 0 !important;
     max-width: 100%;
+    font-size: 1rem;
   }
 
   #home .terminal-header,
@@ -424,7 +469,7 @@ a:hover {
 
 @media (max-width: 480px) {
   .sidebar {
-    width: 260px;
+    width: min(260px, calc(100vw - 0.75rem));
   }
 
   .profile-pic {
@@ -438,7 +483,20 @@ a:hover {
   }
 
   .content {
-    padding: 3rem 0.5rem 1rem 0.5rem;
+    padding: 4rem 0.625rem 1rem;
+  }
+
+  .card {
+    padding: 0.875rem;
+  }
+
+  .terminal-body {
+    padding: 0.625rem;
+    font-size: 0.92rem;
+  }
+
+  .terminal-tree {
+    font-size: 0.72rem;
   }
 
   #home .social-icons a,
