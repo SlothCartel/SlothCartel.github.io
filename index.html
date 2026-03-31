@@ -35,10 +35,16 @@
     <main class="content">
       <!-- Home section -->
       <div id="home" class="card active">
-        <div class="terminal-header">> home</div>
-          <div class="terminal-body" data-text="Hi, I’m Eugene Holt — a backend-leaning full-stack software developer with hands-on experience building and maintaining production Django systems in a remote, contract-based environment. I currently work on internal and client-facing platforms used in day-to-day engineering operations, taking responsibility for backend logic, frontend integration, and infrastructure. My core stack includes Python, Django, PostgreSQL, HTMX, Docker, and Linux-based deployments.">
-
-          <div class="profile-section">
+          <div class="terminal-header">> Home</div>
+        <div class="home-layout">
+          <div class="home-copy">
+            <div class="terminal-body" data-lines='[
+              "Hi, I’m Eugene Holt — a full-stack developer focused on building internal systems that replace manual workflows with structured, reliable software.",
+              " ",
+              "I work mainly with Python and Django, designing backend-heavy applications that deal with data, business logic, and document workflows."
+            ]'></div>
+          </div>
+          <div class="home-profile">
             <img src="media/profile_pic.jpeg" alt="Eugene Holt Profile Picture" class="profile-pic">
             <div class="social-icons">
               <a href="https://github.com/SlothCartel" target="_blank" aria-label="GitHub" title="Visit my GitHub profile">
@@ -57,10 +63,9 @@
 
       <!-- Skills section -->
       <div id="skills" class="card">
-        <div class="terminal-header">&gt; skills</div>
+        <div class="terminal-header">&gt; Skills</div>
         <div class="terminal-body" data-lines='[
-            "&gt; tree skills\/",
-            "skills\/",
+
             "├── Languages\/",
             "│   ├── <i class=\"devicon-python-plain\"><\/i> Python",
             "│   ├── <i class=\"devicon-java-plain colored\"><\/i> Java",
@@ -78,50 +83,52 @@
             "│   └── <i class=\"devicon-linux-plain colored\"><\/i> Linux",
             "└── Web\/",
             "    ├── <i class=\"devicon-html5-plain colored\"><\/i> HTML\/CSS",
-            "    └── <i class=\"devicon-javascript-plain colored\"><\/i> JavaScript"
+            "    ├── <i class=\"devicon-javascript-plain colored\"><\/i> JavaScript",
+            "    ├── <i class=\"devicon-tailwindcss-original\"><\/i> Tailwindcss",
+            "    └── <i class=\"devicon-htmx-plain\"><\/i> HTMX"
         ]'></div>
       </div>
 
       <!-- Work Experience section -->
       <div id="experience" class="card">
-        <div class="terminal-header">&gt; work_experience</div>
+        <div class="terminal-header">&gt; Work Experience</div>
         <div class="terminal-body" data-lines='[
-            "> cat resume.txt",
-            " ",
-            "Position:        Software Developer",
-            "Company:         Holt Consulting Engineers (Pty) Ltd",
-            "Type:            Contract",
-            "Location:        South Africa (Remote)",
-            "Duration:        Dec 2024 – Present",
-            " ",
-            "Overview:",
-            "- Backend-leaning full-stack developer responsible for production systems.",
-            "- Owned features end-to-end across backend logic, frontend integration, deployment, and maintenance.",
-            "- Primary developer responsible for production fixes and system stability.",
-            " ",
-            "Key Projects:",
-            " ",
-            ">> FM-webCRM (Production System)",
-            "- Internal CRM platform used daily by engineering staff.",
-            "- Supports customer management, quotations, and technical calculations.",
-            "- Automated PDF generation for quotes, reports, and datasheets.",
-            "- Role-based access control and invitation-only user onboarding.",
-            "- Responsible for ongoing feature development and production support.",
-            " ",
-            ">> HCE-EDMS (Engineering Document Management System)",
-            "- Internal system for managing engineering documents and approval workflows.",
-            "- Designed to reflect real-world business and sign-off processes.",
-            "- Focused on reliability, access control, and maintainable backend logic.",
-            "- Worked closely with stakeholders to translate operational workflows into technical solutions.",
-            " ",
-            "Technologies:",
-            "Python, Django, PostgreSQL, HTMX, Alpine.js, Tailwind CSS, Bootstrap, Docker, DigitalOcean, Nginx, WireGuard, Linux"
-        ]'></div>
+          " ",
+          "Position:        Software Developer",
+          "Company:         Holt Consulting Engineers (Pty) Ltd",
+          "Type:            Contract",
+          "Location:        South Africa (Remote)",
+          "Duration:        Dec 2024 – Present",
+          " ",
+          "Summary:",
+          "- Backend-leaning full-stack developer building and maintaining internal production systems.",
+          "- Deliver features end-to-end across backend architecture, frontend implementation, deployment, and ongoing support.",
+          "- Own production fixes, system stability, and practical business-driven software delivery.",
+          " ",
+          "Key Contributions:",
+          "- Built and maintained business-critical internal platforms used by engineering staff in daily operations.",
+          "- Implemented backend-heavy functionality with clean integration into the frontend and deployment stack.",
+          "- Translated real operational workflows into maintainable software with strong attention to reliability and control.",
+          "- Worked directly on live systems, handling feature delivery, bug fixes, infrastructure-related tasks, and long-term system upkeep.",
+          " ",
+          ">> FM-webCRM",
+          "- Developed an internal CRM platform supporting customer management, quotations, and technical engineering workflows.",
+          "- Implemented dynamic business logic, structured data flows, and automated PDF generation for quotes and technical documents.",
+          "- Contributed to role-based access control, controlled onboarding flows, and production-facing stability improvements.",
+          " ",
+          ">> HCE-EDMS",
+          "- Developed an internal engineering document management system aligned to real approval and document-control processes.",
+          "- Focused on access control, workflow integrity, maintainable backend design, and dependable day-to-day usability.",
+          "- Worked closely with business stakeholders to convert process requirements into practical technical solutions.",
+          " ",
+          "Tech Stack:",
+          "Python, Django, PostgreSQL, HTMX, Alpine.js, Tailwind CSS, Bootstrap, Docker, Nginx, DigitalOcean, Linux, WireGuard"
+      ]''></div>
       </div>
 
       <!-- Personal Projects section -->
       <div id="projects" class="card">
-        <div class="terminal-header">> personal_projects</div>
+        <div class="terminal-header">> Personal Projects</div>
         <div class="terminal-body">
           <pre class="terminal-tree">
 projects/
@@ -142,13 +149,14 @@ projects/
 
       <!-- Education section -->
       <div id="education" class="card">
-        <div class="terminal-header">> education</div>
+        <div class="terminal-header">> Education</div>
         <div class="terminal-body" data-lines='[
-          "[2023 - Present]",
+          "[2023 - 2025]",
           "  Degree: BSc Information Technology",
           "  Institution: North-West University",
           "  Campus: Potchefstroom, South Africa",
           "",
+          " ",
           "[2018 - 2022]",
           "  Qualification: Matric",
           "  Institution: Sasolburg High School",
@@ -158,7 +166,7 @@ projects/
 
       <!-- Contact section -->
       <div id="contact" class="card">
-        <div class="terminal-header">> contact</div>
+        <div class="terminal-header">> Contact</div>
         <div class="terminal-body" data-text="Email: eugene.holt09@gmail.com"></div>
       </div>
     </main>
